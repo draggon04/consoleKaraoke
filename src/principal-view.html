@@ -1,0 +1,57 @@
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="song-play/song-play-view.html">
+
+<dom-module id="principal-view">
+	<template>
+
+		<app-location route="{{route}}"></app-location>
+		<app-route route="{{route}}" pattern="/:view" data="{{routeData}}" tail="{{routeTail}}"></app-route>
+		
+		<app-drawer-layout>
+			<app-drawer slot="drawer">
+				<app-toolbar main-title>
+					<div>menu</div>
+				</app-toolbar>
+				<nav>
+					<ul>
+						<li><a href="/songToPlay">Canciones a reproducir</a></li>
+					</ul>
+				</nav>
+			</app-drawer>
+
+			<app-header-layout>
+				<app-header slot="header" waterfall>
+					<app-toolbar main-title>
+						<div>Titulo Principal</div>
+					</app-toolbar>
+				</app-header>
+
+				<iron-pages selected="[[routeData.view]]" attr-for-selected="view" role="main">
+					<song-play-view view="songToPlay"></song-play-view>
+				</iron-pages>
+
+			</app-header-layout>
+
+		</app-drawer-layout>
+
+	</template>
+	<script>
+		(function principalViewDefinition(principalView){
+			'use strict'
+
+			class PrincipalView extends Polymer.Element{
+				static get is(){return `principal-view`;}
+			}
+
+			customElements.define(PrincipalView.is, PrincipalView);
+		})(window.principalView);
+	</script>
+</dom-module>

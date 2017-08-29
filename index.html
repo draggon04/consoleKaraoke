@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>console karaoke</title>
+	<script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+	
+	<link rel="import" href="src/principal-view.html">
+</head>
+<body>
+<script src="https://tracking.musixmatch.com/t1.0/m_js/e_1/sn_0/l_9853689/su_0/tr_oR8kpaT-2DGKmGomXDMo54Q4yzugFrVp4_6fj1PtJYn4L8oQctSmchczQv-525caaWn6t0zikyz-fKIlnBHclO9-_YrdOUVUFTs7LeJShWW5vLQdp61bR61Qvs3KQ15rV-TnitT-4W7JI2LrWJtpMa6pszmiuJaw7hJldYS4fCjOp0kTKkb-8BsV4Z4H4-qfIfLlhcUvr0ILUtJfU4L5jIvVN4B3xHMGWMwe3PEmGa65jiSbP5sM3z8RdigjWhV_QTXcavF49gTGojcvqpA-T6GeOkbFcgWWen7yq4d87ABnIE-hv9B0JgYPOmWOnf8dP4VRSR2Lf1SZVi2vjbrCeYq-qXXpp4mrO_aUWNRgSlhe2Ko_ir6MgPNE_qIwuv49/">
+</script>
+<script >
+	function makeRequest(method, url){
+		return new Promise(function(resolve, reject){
+			var xhr = new XMLHttpRequest();
+			xhr.open(method, url);
+			xhr.onload=function(){
+				if(this.status >=200 && this.status < 300 && this.readyState==4){
+					resolve(xhr.response);
+				}
+				else{
+					reject({
+						status: this.status,
+						statusText:xhr.statusText
+					});
+				}
+			};
+
+			xhr.onerror = function(){
+				reject({
+					status:this.status,
+					statusText:xhr.statusText
+				});
+			};
+
+			xhr.send();
+		});
+	}
+
+	function callback(value){
+
+	}
+
+	function load(){
+		//var s = document.createElement('script');
+		//s.src = 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=callback&track_id=72297917&apikey=7d1ab3b095f0de8bf7c122e38b35e721';
+		//s.src='https://tracking.musixmatch.com/t1.0/m_js/e_1/sn_0/l_9853689/su_0/tr_oR8kpaT-2DGKmGomXDMo54Q4yzugFrVp4_6fj1PtJYn4L8oQctSmchczQv-525caaWn6t0zikyz-fKIlnBHclO9-_YrdOUVUFTs7LeJShWW5vLQdp61bR61Qvs3KQ15rV-TnitT-4W7JI2LrWJtpMa6pszmiuJaw7hJldYS4fCjOp0kTKkb-8BsV4Z4H4-qfIfLlhcUvr0ILUtJfU4L5jIvVN4B3xHMGWMwe3PEmGa65jiSbP5sM3z8RdigjWhV_QTXcavF49gTGojcvqpA-T6GeOkbFcgWWen7yq4d87ABnIE-hv9B0JgYPOmWOnf8dP4VRSR2Lf1SZVi2vjbrCeYq-qXXpp4mrO_aUWNRgSlhe2Ko_ir6MgPNE_qIwuv49/'
+		//document.body.appendChild(s);
+	}
+
+	load();
+
+	function clickButton(){
+		document.body.appendChild(_mxmPixel);
+	}
+
+</script>
+	<button onclick="clickButton()">Enviar</button>
+	<div id="values"></div>
+<!--<img src="https://tracking.musixmatch.com/t1.0/m_img/e_1/sn_0/l_9853689/su_0/tr_oR8kpaT-2DGKmGomXDMo54Q4yzugFrVp4_6fj1PtJYn4L8oQctSmchczQv-525caaWn6t0zikyz-fKIlnBHclO9-_YrdOUVUFTs7LeJShWW5vLQdp61bR61Qvs3KQ15rV-TnitT-4W7JI2LrWJtpMa6pszmiuJaw7hJldYS4fCjOp0kTKkb-8BsV4Z4H4-qfIfLlhcUvr0ILUtJfU4L5jIvVN4B3xHMGWMwe3PEmGa65jiSbP5sM3z8RdigjWhV_QTXcavF49gTGojcvqpA-T6GeOkbFcgWWen7yq4d87ABnIE-hv9B0JgYPOmWOnf8dP4VRSR2Lf1SZVi2vjbrCeYq-qXXpp4mrO_aUWNRgSlhe2Ko_ir6MgPNE_qIwuv49/">
+-->
+<!--<script src="https://tracking.musixmatch.com/t1.0/FLLtpvkCiwNquhKXhw_vrPGpuSq8Mn84Nb8xmgxLHF_WBZZhzRcVaxYYvqMDr7yc00ghd7vZSNC-DsXM_HZyWwvRJHy5Ti__cYy17G5X0mxee4JMli-ZjDJgX2dS8Eom24W1Ufmo-Efn-xysmTZuH8xiUvyn6n_epa8uhRi1-c0/"></script>
+-->	<!--<principal-view>
+	</principal-view>-->
+</body>
+</html>
